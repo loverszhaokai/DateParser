@@ -19,10 +19,12 @@
 #include <string>
 #include <vector>
 
+#include "path_config.h"
+
 using std::string;
 using std::vector;
 
-#define OUTPUT_FILE "./test/output.ignore"
+#define OUTPUT_FILE DATE_PARSER_SRC_PATH"/test/output.ignore"
 
 int str_to_int(const string &_str);
 

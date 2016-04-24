@@ -21,6 +21,8 @@
 #include <sstream>
 #include <string>
 
+#include "path_config.h"
+
 #include "test.h"
 #include "time_util.h"
 #include "mc_driver.h"
@@ -36,11 +38,13 @@ extern fstream ofs;
 
 static vector<string> in_files, out_files;
 
+#define TEST_PATH DATE_PARSER_SRC_PATH"/test"
+
 int TEST_date_parser()
 {
 	TimeUtil tu;
 
-	if (0 != get_files("./test", &in_files, &out_files))
+	if (0 != get_files(TEST_PATH, &in_files, &out_files))
 		return -1;
 	for (int iii = 0; iii < in_files.size(); iii++) {
 		const string in_file_name = in_files[iii];

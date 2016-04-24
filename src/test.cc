@@ -1,5 +1,5 @@
 /*
- * ALG
+ * DateParser
  * --------------------------------
  *
  * Copyright 2016 Kai Zhao <loverszhao@gmail.com>

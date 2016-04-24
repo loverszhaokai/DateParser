@@ -22,5 +22,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build-cmake/${CMAKE_BUILD
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build-cmake/${CMAKE_BUILD_TYPE})
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build-cmake/${CMAKE_BUILD_TYPE}/lib)
 
+configure_file(path_config.h.in ${CMAKE_BINARY_DIR}/generated/path_config.h)
+include_directories(${CMAKE_BINARY_DIR}/generated/)
+
 add_subdirectory(src)
 add_subdirectory(third_party)
