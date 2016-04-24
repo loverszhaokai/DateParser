@@ -9,6 +9,9 @@ project(DateParser)
 # 4 build target: cmake --build ./build-cmake/Debug/obj --target ** -- -j4
 # 5 clean: cmake --build ./build-cmake/Debug --target clean
 
+find_package(BISON)
+find_package(FLEX)
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 IF(CMAKE_BUILD_TYPE MATCHES Debug)
