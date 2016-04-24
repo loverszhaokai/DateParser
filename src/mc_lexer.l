@@ -36,6 +36,24 @@ typedef MC::MC_Parser::token token;
             yylval = lval;
 %}
 
+年 {
+     std::cout << "Find keyword:年" << "\t text=" << yytext << "||\n";
+     yylval->build<std::string>( yytext );
+     return( token::SYM_YEAR );
+   }
+
+月 {
+     std::cout << "Find keyword:月" << "\t text=" << yytext << "||\n";
+     yylval->build<std::string>( yytext );
+     return( token::SYM_MONTH );
+   }
+
+日 {
+     std::cout << "Find keyword:日" << "\t text=" << yytext << "||\n";
+     yylval->build<std::string>( yytext );
+     return( token::SYM_DAY );
+   }
+
 \- {
     std::cout << "Find keyword:-" << "\t text=" << yytext << "||\n";
     yylval->build<std::string>( yytext );

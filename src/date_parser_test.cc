@@ -62,7 +62,7 @@ int TEST_date_parser()
 		ofs.close();
 
 		if (0 != compare_file(out_files[iii], OUTPUT_FILE)) {
-			cout << __FUNCTION__ << " case " << iii + 1 << " failed  :" << endl;
+			cout << "\n\t" << __FUNCTION__ << " case " << iii + 1 << " failed!\n\n";
 			return -1;
 		}
 

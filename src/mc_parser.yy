@@ -48,6 +48,10 @@
 %token               CHAR
 
 // Key symbols
+%token <std::string> SYM_YEAR     "年"
+%token <std::string> SYM_MONTH    "月"
+%token <std::string> SYM_DAY      "日"
+
 %token <std::string> SYM_DASH     "-"
 %token <std::string> SYM_COLON    ":"
 
@@ -96,6 +100,7 @@ date
 
 year_month_day
   : year SYM_DASH month SYM_DASH day
+  | year SYM_YEAR month SYM_MONTH day SYM_DAY
   ;
 
 year_month_day_time
@@ -223,10 +228,12 @@ ignored
   {
     printf("\t\t Ignored: SYM_COLON\n");
   }
+  | SYM_YEAR
+  | SYM_MONTH
+  | SYM_DAY
 
   | INT_OTHERS
-  | year INT_OTHERS
-  | year_month_day INT_OTHERS
+  | year
 
   | int_0_59
   {
