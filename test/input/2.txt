@@ -1,0 +1,757 @@
+public void testSpecific() throws Exception {
+    Date reference = DateFormat.getDateTimeInstance(DateFormat.SHORT, 
+        DateFormat.SHORT).parse("5/19/2012 12:00 am");
+    CalendarSource.setBaseDate(reference);
+    
+    validateDateTime("1年前", 5, 19, 2011, 0, 0, 0);
+    validateDateTime("12月前", 5, 19, 2011, 0, 0, 0);
+    validateDateTime("1 月前 ", 4, 19, 2012, 0, 0, 0);
+    validateDateTime("30 日前", 4, 19, 2012, 0, 0, 0);
+    validateNullDateTime("2332");
+    validateDateTime("2012 年 7 月 23 日 14:05 ", 7, 23, 2012, 14,     5, 0);
+    validateDateTime("1小时前", 5, 18, 2012, 23, 0, 0);
+    validateDateTime("1分钟前", 5, 18, 2012, 23, 59, 0);
+    validateDateTime("49 分钟前", 5, 18, 2012, 23, 11, 0);
+   validateDateTime("八月 -   6 - 2012 ", 8, 6, 2012, 0, 0, 0);
+    validateDateTime("23分 钟前  ", 5, 18, 2012, 23, 37, 0);
+    validateDateTime("十一月 - 30 - 2011", 11, 30, 2011, 0, 0, 0);
+    validateDateTime("星期五, 18 五月 2012", 5, 18, 2012, 0, 0, 0);
+    validateNullDateTime("今天");
+    validateNullDateTime("明天");
+    validateDateTime("昨天 12:02", 5, 18, 2012, 12, 2, 0);
+    validateDateTime("2013年4月10日04:44", 4, 10, 2013, 4, 44, 0);
+    validateDateTime("2013-04-10 05:47", 4, 10, 2013, 5, 47, 0);
+    validateDateTime("今天13:25", 5, 19, 2012, 13, 25, 0);
+    validateNullDateTime("4月5日 22:54");
+    validateDateTime("Thu Aug 16, 2012 12:16", 8, 16, 2012, 12, 16, 0);
+    validateNullDateTime("139530117");
+    validateNullDateTime("Mailbox 已获得约1200万美元投资，其用户也已超过100亿，且排队等候邀请的用户还有逾130万位。虽然 Mailbox 现在仅支持 iOS");
+    validateNullDateTime("长株潭报4月10日讯（记者 欧亚琦）昨日，记者从株洲市住房与城乡建设局了解到，长2.7公里，宽31米的长庆大道今年将全面建成通车，该大道将会进一步拉动醴陵长庆示范区发展。");
+    validateDateTime("2013-04-11 11:33:00　来源：网络　", 4, 11, 2013, 11, 33, 0);
+    validateNullDateTime(" Transistor《水晶剑》的发行日期不详，07073苹果站会持续关注游戏动态，敬请关注。");
+    validateNullDateTime(" 04-09");
+    validateNullDateTime("画面：3D写实 大小：15.80");
+    validateNullDateTime("Copyright 2002-2011 07073.com, All Rights Reserved");
+    validateDateTime("　4月8日，晨光在群英村显得十分灿烂。群英村曾是1964年5月6日“远学大寨。", 5, 6, 1964, 0, 0, 0);
+    validateDateTime("Thursday, April 11, 2013", 4, 11, 2013, 0, 0, 0);
+    validateNullDateTime("湘腾琴岛营销中心3月30日开放 预计4月开盘");
+    validateNullDateTime("术维护电话：84662193 业务咨询电话：84662665 新闻热线：84662664 经营许可证号：湘ICP证010022 ");
+    validateNullDateTime("今年2月份长沙楼市的“成绩单”日前发布，长沙市房产研究中心权威发布《2013年1-2月长沙市房产交易情况通报》（以下简称“《通报》”）显示，1-2月长沙楼市");
+    validateNullDateTime("12月9日河西看房");
+    validateDateTime("2012-5-6 14时56分", 5, 6, 2012, 14,56, 0);
+    validateDateTime("时间：2013-1-19 12：12:11", 1, 19, 2013, 12, 12, 11);
+    validateNullDateTime("销毁违法车２３５５辆");
+    validateDateTime("来源:265g.com发表时间:2013-04-11评论 4条 265G微博", 4, 11, 2013, 0, 0, 0);
+    validateDateTime("今日09:00天尊传奇(酷玩吧)", 5, 19, 2012, 9, 0, 0);  //增加今日支持
+    validateDateTime("2013.2.3", 2, 3, 2013, 0, 0, 0);  //增加对.连接符支持
+    validateNullDateTime("2216.61 -2.94 -0.13% 158.67亿"); 
+    validateDateTime("2013-04-11 10:01:38", 4, 11, 2013, 10, 01, 38);
+    validateDateTime("。但是，2008年1月17日和2008年9月28日，国家标准化委员会先后两次下发修改单", 1, 17, 2008, 0, 0, 0);
+    validateNullDateTime("人民网海南视窗博鳌4月6日电（记者吉羽）4月6日上午，博鳌亚洲论坛2013年年会“博鳌乐城杯”桥牌名人赛在博鳌金海岸酒店博鳌厅举行。赛事吸引了大批各界政商名流参赛。");
+    validateNullDateTime("联赛无等级比赛于4月6日结束，经过两天的比赛，海关一队获第一名，成均");
+    validateDateTime("2013-04-29   至  2013-05-01", 4,29 , 2013, 0, 0, 0);
+    validateDateTime("：2013年4月29日至5月1日       ", 4,29 , 2013, 0, 0, 0);
+    validateNullDateTime("童装2013年春夏新品发布会暨招商会将于11月6日至8日隆重召开，");
+    validateNullDateTime("（春季）于4月5日在位于香港尖沙咀弥敦");
+    validateDateTime("于2013年5月16-18日在中国西", 5,16 , 2013, 0, 0, 0);
+    validateDateTime("4 12 2012, 17:50 ", 12,4 , 2012, 17, 50, 0);
+    validateDateTime("将于2012年4月16日（周二）早上8：30在市少年路桥牌协会活动中心准时开赛。", 4, 16, 2012, 8,30, 0);//增加上午等支持
+    validateNullDateTime("（转自：人民网海南视窗）4月6日上午11时30分，博鳌亚洲论坛2013年年会“博鳌乐城杯”桥牌名人赛圆满落幕。");
+    validateDateTime("JULY（7月15）, 2011 at 15:50 AM", 7, 15, 2011, 15, 50, 0);
+   validateDateTime("7月9, 2011 english updated at 15:50 AM", 7, 9, 2011, 15, 50, 0);
+   validateDateTime("15:50 7月9号, 2011", 7, 9, 2011, 15, 50, 0);
+   validateDateTime("10:00 a.m. at beijing time (utc), April 8th, 2013", 4, 8, 2013, 6, 0, 0);
+    validateDateTime("10:00 a.m. +08:00, April 8th, 2013", 4, 7, 2013, 22, 0, 0);
+    validateDateTime("98-5-9",5, 9, 1998, 0, 0, 0);
+    validateDateTime("13-04-16 08:38:50",4, 16, 2013, 8, 38, 50);
+    validateDateTime("前天 08:38:50",5, 17, 2012, 8, 38, 50);
+    validateDateTime("2013年march7日|08:47:22 pm",3, 7, 2013, 20, 47, 22);
+    validateDateTime("星期二, 02月 16th, 2013",2, 16, 2013, 0, 0, 0);
+    validateDateTime("2013/04/16 11:31 KST",4, 16, 2013, 7, 31, 0);
+    validateDateTime(" April（4月）2, 2013 at 11:15 AMPosted b",4, 2, 2013, 11, 15, 0);
+    validateDateTime(" 2013.4.16 11:39",4, 16, 2013, 11, 39, 0);
+    validateDateTime(" 2013年April7日|08:47:22 pm",4, 7, 2013, 20, 47, 22);
+    validateDateTime(" 2 二, 2013",2, 2, 2013,  0, 0, 0);
+    validateDateTime("6 April 2013 Updated at 15:40 CEST",4, 6, 2013,  15, 40, 0);
+    validateDateTime("1小时20分钟之前",5, 18, 2012,  23, 0, 0);
+//    validateNullDateTime("1844年5月-1926年6月");
+    validateDateTime("半小时前",5, 18, 2012,  23, 30, 0);
+//  http://www.milk.com.hk/content/fancl%E3%80%8C%E9%9B%B6%E8%B2%A0%E6%93%94%E3%80%8D  日期无语
+    validateDateTime("04.08.13",4, 8, 2013,  0, 0, 0);
+    validateDateTime("11.08.12",11, 8, 2012,  0, 0, 0);
+    validateDateTime("98.08.12",8, 12, 1998,  0, 0, 0);
+    validateDateTime("2013 年 4 月 19 日, 1:37 下午 - Picturepan2",4, 19, 2013,  13, 37, 0);
+    validateNullDateTime("03-08 14:12:07 |");
+    validateNullDateTime("http://trends.com.cn/fashion/match/mix/2012-12/434545.shtml");
+    validateDateTime("http://news.jschina.com.cn/system/2012/12/05/015452014.shtml",12, 5, 2012,  0, 0, 0);
+    validateDateTime("http://ndnews.oeeee.com/html/20121006/05/6675.html",10, 6, 2012,  0, 0, 0);
+    validateDateTime("ttp://news.ynet.com/1183/2012/12/05/349@388295.htm",12, 5, 2012,  0,0, 0);
+    validateNullDateTime("http://www.zaobao.com/zg/zg121205_003.shtml");
+    validateNullDateTime("http://news.163.com/12/1205/16/8HVMRVI00001124J.html");
+    validateDateTime("http://games.sina.com.cn/t/n/2012-10-19/1634662211.shtml",10, 19, 2012,  0, 0, 0);
+    validateDateTime("Apr 22nd , 2013",4, 22, 2013,  0, 0, 0);
+    validateDateTime("1/15/2012",1, 15, 2012,  0, 0, 0);
+    validateDateTime("15/1/2012",1, 15, 2012,  0, 0, 0);
+    validateDateTime("发表于09/04/2012 14:09 标签",9, 4, 2012,  14, 9, 0);
+    validateDateTime("Rosicky 发表于15/1/2012 09:13 标签: iOS511",1, 15, 2012,  9,13, 0);
+    validateDateTime("  2012-12-05 07:00:17  来源：       东北网",12, 5, 2012,  7, 0, 17);
+    validateDateTime("Jun. 6, 2012, 10:01 PM",6, 6, 2012,  22, 1, 0);
+    validateDateTime("06-06-2012 | 12:48 PM",6, 6, 2012,  12, 48, 0);
+    validateDateTime("11:00 AM Tuesday June 5, 2012",6, 5, 2012, 11, 0, 0);
+    validateDateTime("Jun 7th 2012 at 2:07AM",6, 7, 2012,  2, 7, 0);
+    validateDateTime("JUNE 6, 2012 AT 4:31 PM PT",6, 6, 2012,  19, 31, 0);
+    validateDateTime("2013-04-01 05:02:01",4, 1, 2013,  5, 2, 1);
+    validateDateTime("2012-11-07 22:05:12     Xinhua       Web Editor: liuranran",11, 7, 2012,  22, 5, 12);
+    validateDateTime("Owen Williams Contact Author 10 November 2012 Updated at 18:07 CET 15",11, 10, 2012,  18, 7, 0);
+    validateDateTime("By Bruce Sterling Email Author November 11, 2012 | 5:07 am | ",11, 11, 2012,  5, 7, 0);
+    validateNullDateTime("14-15-1988");
+    validateDateTime("2-20-12",2, 20, 2012,  0, 0, 0);
+    validateDateTime("2012年8月1号",8, 1, 2012,  0, 0, 0);
+    validateNullDateTime("/2011101201");
+    validateNullDateTime("20130420120425.");
+    validateNullDateTime("04.18 10:48");
+    validateNullDateTime("50-10-3050");
+    validateNullDateTime("400-41-02-5");
+    validateNullDateTime("2013-2-30");
+    validateNullDateTime("2013-22-3");
+    validateNullDateTime("23434-22-3");
+    validateNullDateTime("23-12-121");
+    validateDateTime("April 3, '98 and 2013.",4, 3, 1998,  0, 0, 0);
+    validateDateTime("April 3, 98 and 2013-3-4",4, 3, 1998,  0, 0, 0);
+//    validateNullDateTime("96, 2:1 in June 1998 and 2:1 in");
+    validateNullDateTime("10:00, Apr 20,");
+    validateNullDateTime("13-21 15:17:51");
+    validateNullDateTime("may 2013");
+
+    DateTime now = DateTime.now();
+
+    validateDate(now.toString("yyyy年MM月dd日"), now.getMonthOfYear(), now.getDayOfMonth(), now.getYear());
+  }
+
+  Logo whiteGitLab
+crawler / DateParser
+
+Search in this project
+ Project
+ Files
+ Commits
+ Network
+ Graphs
+ Milestones
+ Issues 0
+ Merge Requests 0
+ Members
+ Labels
+ Wiki
+ Settings
+User activity
+zhangrentong
+master
+
+
+ DateParser   ..   date   DateTest.java
+remove timezone in jodawalkerstate 642da4f0
+weijian authored 3 years ago   Browse Code »
+ DateTest.java 11.7 KB EditRawBlameHistoryPermalink Remove
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+package com.hipu.date;
+
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import java.text.DateFormat;
+import java.util.*;
+import java.util.Map.Entry;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ * Runs the parser through the various date formats 
+ * 
+ */
+public class DateTest extends AbstractTest {
+  @BeforeClass
+  public static void oneTime() {
+    Locale.setDefault(Locale.US);
+    TimeZone.setDefault(TimeZone.getTimeZone("US/Eastern"));
+    initCalendarAndParser();
+  }
+  
+  @Test
+  public void testFormal() {
+    validateDate("2009-01-28", 1, 28, 2009);
+    validateDate("2009-10-10", 10, 10, 2009);
+    validateDate("2008-1-2", 1, 2, 2008);
+    validateDate("12/12/2009", 12, 12, 2009);
+//    //validateDate("3/4", 3, 4, Calendar.getInstance().get(Calendar.YEAR));
+    validateDate("sun, 11/21/2010", 11, 21, 2010);
+////    validateDate("in october 2006", 10, 1, 2006);
+//    validateDate("feb 1979", 2, 1, 1979);
+//    validateDate("jan '80", 1, 1, 1980);
+  }
+  
+  @Test
+  public void testRelaxed() {
+    validateDate("oct 1, 2008", 10, 1, 2008);
+    validateDate("oct. 1, 2008", 10, 1, 2008);
+//    validateDate("oct 2008", 10, 1, 2008);
+// //   validateDate("1st oct in the year '89", 10, 1, 1989);
+//    validateDate("thirty first of december '80", 12, 31, 1980);
+//    validateDate("the first of december in the year 1980", 12, 1, 1980);
+//    validateDate("the 2 of february in the year 1980", 2, 2, 1980);
+//    validateDate("the 2nd of february in the year 1980", 2, 2, 1980);
+//    validateDate("the second of february in the year 1980", 2, 2, 1980);
+//    validateDate("jan. 2nd", 1, 2, Calendar.getInstance().get(Calendar.YEAR));
+    validateDate("sun, nov 21 2010", 11, 21, 2010);
+  }
+  
+  @Test
+  public void testExplicitRelative() throws Exception {
+    Date reference = DateFormat.getDateInstance(DateFormat.SHORT).parse("2/28/2011");
+    CalendarSource.setBaseDate(reference);
+    
+//    validateDate("final thursday in april", 4, 28, 2011);
+//    validateDate("final thurs in sep", 9, 29, 2011);
+//    validateDate("4th february ", 2, 4, 2011);
+  }
+  
+  @Test
+  public void testRelative() throws Exception {
+    Date reference = DateFormat.getDateInstance(DateFormat.SHORT).parse("5/19/2012");
+    CalendarSource.setBaseDate(reference);
+    
+//    validateDate("yesterday", 2, 27, 2011);  //->namedspan
+//    validateDate("tomorrow", 3, 1, 2011);
+//    validateDate("in 3 days", 3, 3, 2011);
+    validateDate("3 days ago", 5, 16, 2012);
+//    validateDate("in 3 weeks", 3, 21, 2011);
+    validateDate("four weeks ago", 4, 21, 2012);
+//    validateDate("in 3 months", 5, 28, 2011);
+    validateDate("three months ago", 2, 19, 2012);
+ //   validateDate("in 3 years", 2, 28, 2014);
+    validateDate("seven years ago", 5, 19, 2005);
+//    validateDate("60 years ago", 5, 19, 1952);
+    validateDate("32 days ago", 4, 17, 2012);
+//    validateDate("next monday", 3, 7, 2011);
+//    validateDate("next mon", 3, 7, 2011);
+//    validateDate("4 mondays from now", 3, 28, 2011);
+//    validateDate("4 mondays from today", 3, 28, 2011);
+//    validateDate("next weekend", 3, 12, 2011);
+//    validateDate("six mondays ago", 1, 17, 2011);
+//    validateDate("last monday", 2, 21, 2011);
+//    validateDate("last mon", 2, 21, 2011);
+//    validateDate("this past mon", 2, 21, 2011);
+//    validateDate("this coming mon", 3, 7, 2011);
+//    validateDate("this upcoming mon", 3, 7, 2011);
+//    validateDate("next thurs", 3, 10, 2011);
+//    validateDate("next month", 3, 28, 2011);
+ //   validateDate("last month", 1, 28, 2011);
+//    validateDate("next week", 3, 7, 2011);
+//    validateDate("last week", 2, 21, 2011);
+//    validateDate("next year", 2, 28, 2012);
+//    validateDate("last year", 2, 28, 2010);
+//    validateDate("tues this week", 3, 1, 2011);
+ //   validateDate("tuesday this week", 3, 1, 2011);
+//    validateDate("tuesday next week", 3, 8, 2011);
+ //   validateDate("this september", 9, 1, 2011);
+  //  validateDate("in a september", 9, 1, 2011);
+  //  validateDate("in an october", 10, 1, 2011);
+//    validateDate("september", 9, 1, 2011);
+//    validateDate("last september", 9, 1, 2010);
+//    validateDate("next september", 9, 1, 2011);
+//    validateDate("in a year", 2, 28, 2012);
+ //   validateDate("in a week", 3, 7, 2011);
+  }
+  
+  @Test
+  public void testRange() throws Exception {
+    Date reference = DateFormat.getDateInstance(DateFormat.SHORT).parse("1/02/2011");
+    CalendarSource.setBaseDate(reference);
+    
+//    List<Date> dates = parseCollection("monday to friday");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 1, 3, 2011);
+//    validateDate(dates.get(1), 1, 7, 2011);
+//    
+//    dates = parseCollection("1999-12-31 to tomorrow");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 12, 31, 1999);
+//    validateDate(dates.get(1), 1, 3, 2011);
+//    
+//    dates = parseCollection("now to 2010-01-01");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 1, 2, 2011);
+//    validateDate(dates.get(1), 1, 1, 2010);
+//    
+//    dates = parseCollection("jan 1 to 2");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 1, 1, 2011);
+//    validateDate(dates.get(1), 1, 2, 2011);
+//    
+//    dates = parseCollection("may 2nd to 5th");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 5, 2, 2011);
+//    validateDate(dates.get(1), 5, 5, 2011);
+//    
+//    dates = parseCollection("1/3 to 2/3");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 1, 3, 2011);
+//    validateDate(dates.get(1), 2, 3, 2011);
+//    
+//    dates = parseCollection("2/3 to in one week");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 2, 3, 2011);
+//    validateDate(dates.get(1), 1, 9, 2011);
+//    
+//    dates = parseCollection("first day of may to last day of may");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 5, 1, 2011);
+//    validateDate(dates.get(1), 5, 31, 2011);
+//    
+//    dates = parseCollection("feb 28th or 2 days after");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 2, 28, 2011);
+//    validateDate(dates.get(1), 3, 2, 2011);
+//    
+//    dates = parseCollection("tomorrow at 10 and monday at 11");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 1, 3, 2011);
+//    validateDate(dates.get(1), 1, 3, 2011);
+//    
+//    dates = parseCollection("tomorrow at 10 through tues at 11");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 1, 3, 2011);
+//    validateDate(dates.get(1), 1, 4, 2011);
+//    
+//    dates = parseCollection("first day of 2009 to last day of 2009");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 1, 1, 2009);
+//    validateDate(dates.get(1), 12, 31, 2009);
+//    
+//    dates = parseCollection("first to last day of 2008");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 1, 1, 2008);
+//    validateDate(dates.get(1), 12, 31, 2008);
+//    
+//    dates = parseCollection("first to last day of september");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 9, 1, 2011);
+//    validateDate(dates.get(1), 9, 30, 2011);
+//    
+//    dates = parseCollection("first to last day of this september");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 9, 1, 2011);
+//    validateDate(dates.get(1), 9, 30, 2011);
+//    
+//    dates = parseCollection("first to last day of 2 septembers ago");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 9, 1, 2009);
+//    validateDate(dates.get(1), 9, 30, 2009);
+//    
+//    dates = parseCollection("first to last day of 2 septembers from now");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 9, 1, 2012);
+//    validateDate(dates.get(1), 9, 30, 2012);
+//    
+//    dates = parseCollection("for 5 days");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 1, 2, 2011);
+//    validateDate(dates.get(1), 1, 7, 2011);
+//    
+//    dates = parseCollection("for ten months");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 1, 2, 2011);
+//    validateDate(dates.get(1), 11, 2, 2011);
+//    
+//    dates = parseCollection("for twenty-five years");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 1, 2, 2011);
+//    validateDate(dates.get(1), 1, 2, 2036);
+//    
+//    dates = parseCollection("I want to go shopping in Knoxville, TN in the next five to six months.");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 6, 2, 2011);
+//    validateDate(dates.get(1), 7, 2, 2011);
+//    
+//    dates = parseCollection("I want to watch the fireworks in the next two to three months.");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 3, 2, 2011);
+//    validateDate(dates.get(1), 4, 2, 2011);
+//    
+//    dates = parseCollection("september 7th something");
+//    Assert.assertEquals(1, dates.size());
+//    validateDate(dates.get(0), 9, 7, 2011);
+//    
+//    dates = parseCollection("september 7th something happened here");
+//    Assert.assertEquals(1, dates.size());
+//    validateDate(dates.get(0), 9, 7, 2011);
+//    
+//    dates = parseCollection("bla bla bla 2 and 4 month");
+//    Assert.assertEquals(2, dates.size());
+//    validateDate(dates.get(0), 3, 2, 2011);
+//    validateDate(dates.get(1), 5, 2, 2011);
+  }
+
+  // https://github.com/joestelmach/natty/issues/38
+  @Test
+  public void testRelativeDateDifferentTimezone() {
+    // Prepare
+    TimeZone.setDefault(TimeZone.getTimeZone("US/Eastern"));
+//    Parser parser = new Parser(TimeZone.getTimeZone("US/Pacific"));
+    // 2012, June 3, Sunday, 1 a.m. in US/Eastern GMT -4
+    // Same time as
+    // 2012, June 2, Saturday, 10 p.m. in US/Pacific GMT -7
+    Calendar earlySunday = new GregorianCalendar(2012, 5, 3, 1, 0);
+    CalendarSource.setBaseDate(earlySunday.getTime());
+
+    // Run
+ //  Date result = parser.parse("Sunday at 10am").get(0).getDates().get(0);
+
+    // Validate
+    // Result should be June 3, 2012
+//    validateDate(result, 6, 3, 2012);
+
+    TimeZone.setDefault(TimeZone.getTimeZone("US/Eastern"));
+  }
+  
+  public static void main(String[] args) {
+    ConsoleHandler handler = new ConsoleHandler();
+    handler.setLevel(Level.ALL);
+    Logger logger = Logger.getLogger("com.hipu.date");
+    logger.setLevel(Level.FINEST);
+    logger.addHandler(handler);
+    
+    //String value = "next fall";
+    String value = "first or last day of september";
+
+    Parser parser = new Parser();
+    List<DateGroup> groups = parser.parse(value);
+    for(DateGroup group:groups) {
+      System.out.println(value);
+      System.out.println(group.getSyntaxTree().toStringTree());
+      System.out.println("line: " + group.getLine() + ", column: " + group.getPosition());
+      System.out.println(group.getText());
+      System.out.println(group.getDates());
+      System.out.println("is time inferred: " + group.isTimeInferred());
+      System.out.println("is recurring: " + group.isRecurring());
+      System.out.println("recurs until: " + group.getRecursUntil());
+      
+      System.out.println("\n** Parse Locations **");
+      for(Entry<String, List<ParseLocation>> entry:group.getParseLocations().entrySet()) {
+        for(ParseLocation loc:entry.getValue()) {
+          System.out.println(loc.getRuleName());
+        }
+      }
+      
+      List<ParseLocation> conjunctionLocations = group.getParseLocations().get("conjunction");
+      if(conjunctionLocations != null) {
+        System.out.print("\nconjunctions: ");
+        for(ParseLocation location:conjunctionLocations) {
+          System.out.print(location.getText() + " ");
+        }
+      }
+      System.out.print("\n\n");
+    }
+  }
+}
